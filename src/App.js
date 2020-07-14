@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  BrowseRouter,
-  Routes,
-  Route,
-  Link,
-  Router,
-  BrowserRouter,
-} from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header.js";
 import { Product } from "./components/Product.js";
 import { Home } from "./components/Home.js";
