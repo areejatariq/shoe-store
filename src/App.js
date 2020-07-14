@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowseRouter,
+  Routes,
+  Route,
+  Link,
+  Router,
+  BrowserRouter,
+} from "react-router-dom";
+import Header from "./components/Header.js";
+import { Product } from "./components/Product.js";
+import { Home } from "./components/Home.js";
+import { Notfound } from "./components/Notfound";
+import { Productdetails } from "./components/Productdetails";
+import { ProductIndex } from "./components/ProductIndex";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="products" element={<Product />}>
+          <Route path="/" element={<ProductIndex />} />
+          <Route path=":Key" element={<Productdetails />} />
+        </Route>
+        <Route path="*" element={<Notfound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
